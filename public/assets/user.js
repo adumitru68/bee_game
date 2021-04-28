@@ -14,7 +14,6 @@ var userService = (function () {
 
     function bindElements() {
         $( "#js_new_user" ).click(function(evt) {
-            alert('ajisasji')
             createUser()
         });
 
