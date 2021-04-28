@@ -1,0 +1,39 @@
+<?php
+/** @var \App\Domain\Entity\UserEntity $user */
+/** @var \App\Domain\Entity\GameEntity[] $games */
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/assets/game.css">
+
+</head>
+<body>
+    <h1>Selected: <?=htmlspecialchars($user->getFullName())?></h1>
+    <a href="/">Home</a><br><br>
+    <div class="game-history">
+        <?php
+        foreach ($games as $game) {
+            $closed = $game->getEnded() ? 'Closed' : 'Active'
+            ?>
+            <div id="game_<?=$game->getId()?>" class="game" data-id="<?=$game->getId()?>">
+                Game id: <?=$game->getId()?>
+                <span><?=$closed?></span>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
+
+    <div id="game_play" style="margin-bottom: 30px">
+    </div>
+
+    <button id="js_new_game" style="padding: 10px" data-id="<?=$user->getId()?>">New Game</button>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/assets/game.js?v=<?=uniqid()?>"></script>
+</body>
+</html>

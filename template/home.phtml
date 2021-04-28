@@ -1,0 +1,22 @@
+<?php
+/** @var \App\Domain\Entity\UserEntity[] $users */
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Please select player</h1>
+    <?php
+    foreach ($users as $user) {
+        ?><a href="/games/user/<?=htmlspecialchars($user->getId())?>"><?=htmlspecialchars($user->getFullName())?></a><br><br><?php
+    }
+    ?>
+    <button id="js_new_user" style="padding: 10px">New User</button>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/assets/user.js?v=<?=uniqid()?>"></script>
+</body>
+</html>

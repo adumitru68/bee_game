@@ -1,0 +1,20 @@
+<?php
+/** @var \App\Domain\Entity\GameEntity $game */
+/** @var \App\Domain\Entity\BeeEntity[] $swarm */
+/** @var int $hitBeeId */
+?>
+<div>
+    Selected game: <b><?=$game->getId()?></b>
+    <?php
+    foreach ($swarm as $bee) {
+        $selclass = '';
+        if($bee->getId() === $hitBeeId) {
+            $selclass = 'bee_sel';
+        }
+        ?>
+        <div class="bee <?=$selclass?>"><?=$bee->getBeeName()?> <span><?=$bee->getHealthyRemain()?></span></div>
+        <?php
+    }
+    ?>
+    <button id="js_hit" class="js_hit" style="padding: 10px" data-id="<?=$game->getId()?>">Hit!</button>
+</div>

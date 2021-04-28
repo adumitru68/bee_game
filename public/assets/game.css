@@ -1,0 +1,19 @@
+.game-history {
+    display: block;
+    font-size: 14px;
+    max-width: 500px;
+    padding: 10px;
+    background: antiquewhite;
+}
+
+.game{
+    display: block;
+    overflow: hidden;
+    padding: 10px;
+    border: solid 1px #ffaa50;
+    margin-bottom: 10px;
+}
+
+.bee_sel {
+    color: red!important;
+}
